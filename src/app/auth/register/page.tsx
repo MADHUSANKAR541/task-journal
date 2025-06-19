@@ -122,7 +122,7 @@ export default function RegisterPage() {
 
           <div className={styles.formGroup}>
             <div className={styles.passwordLabelContainer}>
-              <label htmlFor="password">Password</label>
+            <label htmlFor="password">Password</label>
               <button
                 type="button"
                 className={styles.infoButton}
@@ -142,26 +142,26 @@ export default function RegisterPage() {
               disabled={isLoading}
             />
             {showPasswordRequirements && (
-              <div className={styles.passwordRequirements}>
-                <p>Password must contain:</p>
-                <ul>
-                  <li className={password.length >= PASSWORD_REQUIREMENTS.minLength ? styles.valid : ''}>
-                    At least {PASSWORD_REQUIREMENTS.minLength} characters
-                  </li>
-                  <li className={PASSWORD_REQUIREMENTS.hasUpperCase.test(password) ? styles.valid : ''}>
-                    One uppercase letter
-                  </li>
-                  <li className={PASSWORD_REQUIREMENTS.hasLowerCase.test(password) ? styles.valid : ''}>
-                    One lowercase letter
-                  </li>
-                  <li className={PASSWORD_REQUIREMENTS.hasNumber.test(password) ? styles.valid : ''}>
-                    One number
-                  </li>
-                  <li className={PASSWORD_REQUIREMENTS.hasSpecialChar.test(password) ? styles.valid : ''}>
-                    One special character
-                  </li>
-                </ul>
-              </div>
+            <div className={styles.passwordRequirements}>
+              <p>Password must contain:</p>
+              <ul>
+                <li className={password.length >= PASSWORD_REQUIREMENTS.minLength ? styles.valid : ''}>
+                  At least {PASSWORD_REQUIREMENTS.minLength} characters
+                </li>
+                <li className={PASSWORD_REQUIREMENTS.hasUpperCase.test(password) ? styles.valid : ''}>
+                  One uppercase letter
+                </li>
+                <li className={PASSWORD_REQUIREMENTS.hasLowerCase.test(password) ? styles.valid : ''}>
+                  One lowercase letter
+                </li>
+                <li className={PASSWORD_REQUIREMENTS.hasNumber.test(password) ? styles.valid : ''}>
+                  One number
+                </li>
+                <li className={PASSWORD_REQUIREMENTS.hasSpecialChar.test(password) ? styles.valid : ''}>
+                  One special character
+                </li>
+              </ul>
+            </div>
             )}
           </div>
 

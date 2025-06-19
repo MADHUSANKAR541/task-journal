@@ -29,7 +29,7 @@ export default function EntryPage({ params }: { params: { id: string } }) {
 
   useEffect(() => {
     if (user) {
-      fetchEntry();
+    fetchEntry();
     }
   }, [params.id, user]);
 
@@ -65,7 +65,7 @@ export default function EntryPage({ params }: { params: { id: string } }) {
       if (elapsed < 2000) {
         setTimeout(() => setLoading(false), 2000 - elapsed);
       } else {
-        setLoading(false);
+      setLoading(false);
       }
     }
   };
@@ -143,48 +143,48 @@ export default function EntryPage({ params }: { params: { id: string } }) {
 
   return (
     <ProtectedRoute>
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <h1>{entry.title}</h1>
-          <div className={styles.actions}>
-            <Link
-              href={`/journal/${params.id}/edit`}
-              className={styles.editButton}
-            >
-              Edit
-            </Link>
-            <button
-              onClick={handleDelete}
-              className={styles.deleteButton}
-              disabled={isDeleting}
-            >
-              {isDeleting ? 'Deleting...' : 'Delete'}
-            </button>
-            <Link href="/journal" className={styles.backButton}>
-              Back to Journal
-            </Link>
-          </div>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <h1>{entry.title}</h1>
+        <div className={styles.actions}>
+          <Link
+            href={`/journal/${params.id}/edit`}
+            className={styles.editButton}
+          >
+            Edit
+          </Link>
+          <button
+            onClick={handleDelete}
+            className={styles.deleteButton}
+            disabled={isDeleting}
+          >
+            {isDeleting ? 'Deleting...' : 'Delete'}
+          </button>
+          <Link href="/journal" className={styles.backButton}>
+            Back to Journal
+          </Link>
         </div>
+      </div>
 
-        <div className={styles.metadata}>
-          <time dateTime={entry.created_at}>
-            {new Date(entry.created_at).toLocaleDateString()}
-          </time>
+      <div className={styles.metadata}>
+        <time dateTime={entry.created_at}>
+          {new Date(entry.created_at).toLocaleDateString()}
+        </time>
           {moodDisplay && (
             <div className={styles.moodDisplay}>
               <span className={styles.moodEmoji}>{moodDisplay.emoji}</span>
               <span className={styles.moodLabel}>{moodDisplay.label}</span>
             </div>
           )}
+      </div>
+
+      {entry.image_url && (
+        <div className={styles.imageContainer}>
+          <img src={entry.image_url} alt={entry.title} />
         </div>
+      )}
 
-        {entry.image_url && (
-          <div className={styles.imageContainer}>
-            <img src={entry.image_url} alt={entry.title} />
-          </div>
-        )}
-
-        <div className={styles.content}>
+      <div className={styles.content}>
           <div 
             dangerouslySetInnerHTML={{ __html: entry.content }}
             className={styles.richContent}

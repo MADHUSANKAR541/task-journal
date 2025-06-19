@@ -21,13 +21,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider>
-          <AuthProvider>
-            <Navbar />
-            <main>{children}</main>
-            <footer className="footer">
-              <p>Write. Reflect. Grow. — A private space just for you.</p>
-            </footer>
-          </AuthProvider>
+        <AuthProvider>
+          <Navbar />
+          <main>{children}</main>
+          <footer className="footer">
+            <p>Write. Reflect. Grow. — A private space just for you.</p>
+          </footer>
+        </AuthProvider>
         </ThemeProvider>
       </body>
     </html>
