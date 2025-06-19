@@ -1,0 +1,165 @@
+:root {
+  // Color Palette - Light Mode
+  --bg-light: #fdfcfb;
+  --text-dark: #2c3e50;
+  --primary-accent: #4a90e2;
+  --secondary-accent: #8e44ad;
+  --card-bg: #ffffff;
+  --border-color: #e0e0e0;
+  --muted-text: #7f8c8d;
+  --success: #27ae60;
+  --error: #e74c3c;
+
+  // Typography
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-heading: 'Playfair Display', Georgia, serif;
+  --font-family-handwriting: 'Caveat', cursive;
+
+  // Spacing
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  // Border Radius
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  // Shadows
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  // Transitions
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+// Dark Mode Variables
+[data-theme="dark"] {
+  --bg-light: #1a1a1a;
+  --text-dark: #ffffff;
+  --primary-accent: #60a5fa;
+  --secondary-accent: #a78bfa;
+  --card-bg: #2d2d2d;
+  --border-color: #404040;
+  --muted-text: #a0a0a0;
+  --success: #34d399;
+  --error: #f87171;
+
+  // Dark mode shadows
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+// Global Styles
+body {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  font-family: var(--font-family-base);
+  line-height: 1.6;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  color: var(--text-dark);
+  margin-bottom: var(--spacing-md);
+  transition: color var(--transition-normal);
+}
+
+// Common Components
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-lg);
+  transition: box-shadow var(--transition-fast), background-color var(--transition-normal);
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.button {
+  background-color: var(--primary-accent);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    background-color: darken(#4a90e2, 10%);
+    transform: translateY(-1px);
+  }
+
+  &.secondary {
+    background-color: var(--secondary-accent);
+  }
+}
+
+.input {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 1rem;
+  background-color: var(--card-bg);
+  color: var(--text-dark);
+  transition: border-color var(--transition-fast), background-color var(--transition-normal);
+
+  &:focus {
+    outline: none;
+    border-color: var(--primary-accent);
+  }
+
+  &::placeholder {
+    color: var(--muted-text);
+  }
+}
+
+// Journal-specific styles
+.journal-entry {
+  font-family: var(--font-family-base);
+  line-height: 1.8;
+  color: var(--text-dark);
+  transition: color var(--transition-normal);
+
+  .entry-date {
+    font-family: var(--font-family-handwriting);
+    color: var(--muted-text);
+    font-size: 1.2rem;
+  }
+
+  .entry-content {
+    margin-top: var(--spacing-md);
+  }
+}
+
+// Utility Classes
+.text-muted {
+  color: var(--muted-text);
+}
+
+.text-success {
+  color: var(--success);
+}
+
+.text-error {
+  color: var(--error);
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  :root {
+    --spacing-xl: 1.5rem;
+    --spacing-2xl: 2rem;
+  }
+} 

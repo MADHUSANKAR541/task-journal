@@ -1,0 +1,46 @@
+.themeToggle {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  color: var(--text-dark);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    background-color: var(--bg-light);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-accent);
+  }
+}
+
+.icon {
+  transition: all var(--transition-fast);
+  stroke-width: 1.5;
+
+  &:hover {
+    transform: rotate(15deg);
+  }
+}
+
+// Dark mode specific styles
+[data-theme="dark"] .themeToggle {
+  color: var(--text-dark);
+
+  &:hover {
+    background-color: var(--card-bg);
+  }
+} 
